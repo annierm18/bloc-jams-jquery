@@ -7,10 +7,13 @@ class Player {
   }
 
   prettyTime(timeInSeconds) {
-    const currentTime = player.getTime ();
     var minutes = Math.floor(timeInSeconds / 60);
-    var seconds = timeInSeconds - minutes * 60;
-    return ':'+minutes+':'+seconds;
+    var seconds = Math.floor(timeInSeconds - minutes * 60);
+    if (seconds < 10) {
+      return minutes + ':0' + seconds;
+    }
+    else {  return minutes+':'+seconds;
+    }
   }
 
   getDuration() {
